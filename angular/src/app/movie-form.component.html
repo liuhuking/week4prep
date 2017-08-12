@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<body>
+    <div class="container">
+        <h1>Movie</h1>
+        <form (ngSubmit)="onSubmit()" #movieForm="ngForm">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" id="title" required [(ngModel)]="model.title" name="title">
+            </div>
+
+            <div class="form-group">
+                <label for="releaseDate">Release date</label>
+                <input type="text" class="form-control" id="releaseDate" required [(ngModel)]="model.releaseDate" name="releaseDate">
+            </div>
+
+            <div class="form-group">
+                <label for="duration">Duration</label>
+                <input type="text" class="form-control" id="duration" required [(ngModel)]="model.duration" name="duration">
+            </div>
+
+            <div class="form-group">
+                <label for="genre">Genre</label>
+                <input type="text" class="form-control" id="genre" required [(ngModel)]="model.genre" name="genre">
+            </div>
+
+            <div class="form-group">
+                <label for="synopsis">Synopsis</label>
+                <input type="text" class="form-control" id="synopsis" required [(ngModel)]="model.synopsis" name="synopsis">
+            </div>
+
+            <button type="submit" class="btn btn-success" [disabled]="!movieForm.form.valid" >Save</button>
+        </form>
+    </div>
+</body>
+</html>
