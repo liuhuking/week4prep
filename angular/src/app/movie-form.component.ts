@@ -24,6 +24,8 @@ export class MovieFormComponent implements OnInit{
         });
     }
 
+    get Move() {return this.movie-from.get('Movie'); }
+
     submitted = false;
     
     onSubmit(){
