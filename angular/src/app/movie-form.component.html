@@ -24,28 +24,82 @@
              Name cannot be Bob.
             </div>
      
-             </div>
+            </div>
 
 
             <div class="form-group">
                 <label for="releaseDate">Release date</label>
-                <input type="text" class="form-control" id="releaseDate" required [(ngModel)]="model.releaseDate" name="releaseDate">
+                <input type="text" class="form-control" id="releaseDate" required [(ngModel)]="model.releaseDate" name="releaseDate" #name="ngModel">
             </div>
+
+            <div *ngIf=”name.dirty && !name.valid && !name.pending”>
+                <p *ngIf=”name.errors.releaseDate>
+                   Your releaseDate should start with a number
+                </p>
+                <p *ngIf=”name.errors.releaseDate>
+                   This releaseDate is already taken
+                </p>
+             
+     
+            </div>
+
+
+
 
             <div class="form-group">
                 <label for="duration">Duration</label>
                 <input type="text" class="form-control" id="duration" required [(ngModel)]="model.duration" name="duration">
             </div>
 
+            <div *ngIf=”name.dirty && !name.valid && !name.pending”>
+                <p *ngIf=”name.errors.duration>
+                   Your duration should start with a number
+                </p>
+                <p *ngIf=”name.errors.duration>
+                   This duration is already taken
+                </p>
+             
+     
+            </div>
+
+
+
             <div class="form-group">
                 <label for="genre">Genre</label>
                 <input type="text" class="form-control" id="genre" required [(ngModel)]="model.genre" name="genre">
             </div>
 
+            <div *ngIf=”name.dirty && !name.valid && !name.pending”>
+                <p *ngIf=”name.errors.genre>
+                   Your genre can't start with a number
+                </p>
+                <p *ngIf=”name.errors.genre>
+                   This genre is already taken
+                </p>
+             
+     
+            </div>
+
+
+
+
             <div class="form-group">
                 <label for="synopsis">Synopsis</label>
                 <input type="text" class="form-control" id="synopsis" required [(ngModel)]="model.synopsis" name="synopsis">
             </div>
+
+            <div *ngIf=”name.dirty && !name.valid && !name.pending”>
+                <p *ngIf=”name.errors.synopsis>
+                   Your synopsis can't start with a number
+                </p>
+                <p *ngIf=”name.errors.synopsis>
+                   This synopsis is already taken
+                </p>
+             
+     
+            </div>
+
+
 
             <button type="submit" class="btn btn-success" [disabled]="!movieForm.form.valid" >Save</button>
         </form>
